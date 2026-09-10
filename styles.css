@@ -1,0 +1,202 @@
+/* Porchella Concert | Mobile-first styles */
+:root {
+  --ink: #263238;
+  --muted: #66736f;
+  --paper: #faf8f2;
+  --card: #ffffff;
+  --evergreen: #2f3e46;
+  --bronze: #8b5e34;
+  --gold: #d4af37;
+  --green: #1d6d37;
+  --line: #e5dfd3;
+  --shadow: 0 5px 18px rgba(25, 33, 36, 0.09);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: #000;
+}
+
+.skip-link:focus { left: 0.75rem; top: 0.75rem; }
+
+.hero {
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(145deg, #243238, var(--evergreen));
+  padding: 3.5rem 1.25rem 3rem;
+}
+
+.hero-inner,
+.featured,
+.search-section,
+.songs-section {
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
+}
+
+.hero h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(2.2rem, 10vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.eyebrow.dark { color: var(--bronze); opacity: 1; }
+
+.tagline {
+  margin: 0.7rem 0 0;
+  font-size: clamp(1.2rem, 5vw, 1.7rem);
+}
+
+.intro { max-width: 680px; margin: 0.75rem auto 0; }
+
+.featured { padding-block: 2.25rem 1rem; }
+.featured > h2,
+.section-heading h2 { margin: 0 0 1rem; }
+
+.featured-grid,
+.song-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.featured-card,
+.song-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.featured-card { padding: 1rem 1.1rem; }
+.featured-card h3 { margin: 0 0 0.25rem; color: var(--bronze); }
+.featured-card p { margin: 0; }
+
+.search-section {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-block: 1rem;
+  background: rgba(250, 248, 242, 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.search-section label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: system-ui, sans-serif;
+  font-weight: 800;
+}
+
+#songSearch {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  border: 2px solid #cfc7b9;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+#songSearch:focus {
+  outline: 3px solid rgba(212, 175, 55, 0.38);
+  border-color: var(--bronze);
+}
+
+#resultCount {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.88rem;
+}
+
+.songs-section { padding-block: 1.5rem 3rem; }
+.section-heading { margin-bottom: 1rem; }
+.song-card { padding: 1.15rem; }
+.song-card h2 { margin: 0.15rem 0 0.35rem; color: var(--bronze); line-height: 1.2; }
+.song-card > p:last-child { margin-bottom: 0; }
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.92rem;
+}
+
+.badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.5rem; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-family: system-ui, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+.badge-gold { background: var(--gold); color: #171300; }
+.badge-green { background: var(--green); color: #fff; }
+.badge-bronze { background: var(--bronze); color: #fff; }
+
+.no-results {
+  padding: 1.2rem;
+  border: 1px dashed var(--bronze);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+footer {
+  padding: 2.3rem 1.25rem;
+  text-align: center;
+  background: var(--evergreen);
+  color: #fff;
+}
+footer p { margin: 0.25rem 0; }
+.footer-title { font-size: 1.3rem; font-weight: 700; }
+
+@media (min-width: 640px) {
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .song-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .song-card { padding: 1.35rem; }
+}
+
+@media (min-width: 980px) {
+  .featured-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
